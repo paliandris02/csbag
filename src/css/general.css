@@ -5,5 +5,10 @@
 .container {
   max-width: 120rem;
   margin: 0 auto;
-  /* padding: 0 3.2rem; */
+}
+.pagination-box {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }
