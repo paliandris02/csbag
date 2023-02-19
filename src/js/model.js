@@ -1,5 +1,8 @@
 import * as config from "../js/config.js";
 
+//
+
+//
 export const state = {
   profile: {
     steamID64: "76561198188240999",
@@ -18,6 +21,25 @@ export const state = {
 
 //load prof and friends
 
+export const loadProfile = async function (steamID64) {
+  try {
+    const res = await fetch(`${config.API_URL_SUMMARY}${steamID64}`);
+    console.log(res);
+
+    const data = res.json();
+    if (!data) {
+      return;
+    }
+    state.profile.avatar = data.response.players.avatar;
+    state.profile.name = data.response.players.personaname;
+  } catch (error) {
+    console.log("MODEL ERROR PROFILE");
+    throw error;
+  }
+};
+
+//
+
 const createProfileObject = function (data) {
   const { inventory } = data.rgDescriptions;
 
@@ -32,7 +54,9 @@ export const loadInventory = async function (steamID64) {
     console.log("MODEL");
     if (!data.success) return;
     state.profile.inventory = createProfileObject(data);
+    console.log(data);
   } catch (error) {
+    console.log("MODEL ERROR");
     throw error;
   }
 };

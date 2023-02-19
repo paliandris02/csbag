@@ -1,4 +1,3 @@
-import { loadInventory } from "./model.js";
 import View from "./View.js";
 import { ICON_URL } from "./config.js";
 

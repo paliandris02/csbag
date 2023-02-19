@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "get-steam-inventory": "^2.0.0",
+    "steam-inventory-api": "^2.0.10"
+  }
+}
